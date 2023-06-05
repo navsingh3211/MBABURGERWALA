@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import me from "../../assets/founder.jpg";
 
 const MenuCard = ({ itemNum, burgerSrc, price, title, handler, delay = 0}) => {
   return (
