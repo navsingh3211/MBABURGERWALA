@@ -1,8 +1,6 @@
 import React from "react";
 import {AiFillYoutube,AiFillGithub} from "react-icons/ai"
 
-// import { motion } from "framer-motion";
-// import me from "../../assets/founder.jpg";
 
 const Footer = () => {
   
