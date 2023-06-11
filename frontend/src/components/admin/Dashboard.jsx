@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineEye } from "react-icons/ai";
-import { Doughnut } from "react-chartjs-2"
-import { Chart as ChartJs,Tooltip,ArcElement,Legend } from "chart.js"
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, Tooltip, ArcElement, Legend } from "chart.js";
+import Loader from "../layout/Loader";
 
-ChartJs.register(Tooltip, ArcElement, Legend);
+ChartJS.register(Tooltip, ArcElement, Legend);
+
+const loading = false;
 
 const Box = ({ title, value }) => (
   <div>
@@ -17,8 +19,7 @@ const Box = ({ title, value }) => (
 );
 
 const Dashboard = () => {
-    
-    const data = {
+  const data = {
     labels: ["Preparing", "Shipped", "Delivered"],
     datasets: [
       {
@@ -34,31 +35,32 @@ const Dashboard = () => {
       },
     ],
   };
+
   return (
-    <>
-      <section className="dashboard">
+    <section className="dashboard">
+      {loading === false ? (
         <main>
           <article>
             <Box title="Users" value={213} />
             <Box title="Orders" value={23} />
             <Box title="Income" value={21323} />
           </article>
+
           <section>
             <div>
-              <Link to="/admin/orders">
-                View Orders <AiOutlineEye />
-              </Link>
-              <Link to="/admin/users">
-                View Users <AiOutlineEye />
-              </Link>
+              <Link to="/admin/orders">View Orders</Link>
+              <Link to="/admin/users">View Users</Link>
             </div>
+
             <aside>
               <Doughnut data={data} />
             </aside>
           </section>
         </main>
-      </section>
-    </>
+      ) : (
+        <Loader />
+      )}
+    </section>
   );
 };
 

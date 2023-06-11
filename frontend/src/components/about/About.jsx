@@ -31,7 +31,7 @@ const About = () => {
           <article>
             <div>
               <img src={me} alt="Founder" />
-              <h3>Abhishek Singh</h3>
+              <h3>Navneet Singh</h3>
             </div>
 
             <p>
