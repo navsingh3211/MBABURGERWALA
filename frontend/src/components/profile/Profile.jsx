@@ -29,7 +29,7 @@ const Profile = () => {
             initial={{ x: "-100vw", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
           >
-            <Link to="/admin/myorders">orders</Link>
+            <Link to="/myorders">orders</Link>
           </motion.div>
           <motion.button
             initial={{ x: "-100vw", opacity: 0 }}
