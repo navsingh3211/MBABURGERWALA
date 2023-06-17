@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "passport";
 import { myProfile, logout } from "../controllers/user.js";
-
+import { isAuthenticated } from "../middlewares/auth.js";
 const router = express.Router();
 
 router.get(
@@ -23,7 +23,7 @@ router.get("/login",
     }
 );
 
-router.get("/me", myProfile);
+router.get("/me",isAuthenticated, myProfile);
 router.get("/logout", logout);
 
 
