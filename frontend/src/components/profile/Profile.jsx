@@ -3,8 +3,12 @@ import { motion } from "framer-motion";
 import me from "../../assets/founder.jpg";
 import { Link } from "react-router-dom";
 import {MdDashboard} from "react-icons/md"
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/user";
+
 
 const Profile = () => {
+  
     const options = {
       initial: {
         y: "-100%",
@@ -15,6 +19,12 @@ const Profile = () => {
         opacity: 1,
       },
     };
+  
+    const dispatch = useDispatch();
+    const logoutHandler = () => {
+      dispatch(logout());
+    };
+  
     return (
       <section className="profile">
         <main>
@@ -34,7 +44,8 @@ const Profile = () => {
           <motion.button
             initial={{ x: "-100vw", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{delay:0.3}}
+            transition={{ delay: 0.3 }}
+            onClick={logoutHandler}
           >
             Logout
           </motion.button>
