@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authReducer } from "./reducers/userReducer";
+import userDetails from "../features/userDetailsSlice"
+
 
 const store = configureStore({
-    reducer: {
-        auth:authReducer
-    },
+  reducer: {
+    aboutMe: userDetails,
+    // Add other reducers if you have more slices
+  },
 });
 
 export default store;
 
-export const server = "https://mbaburgerwalaserver.vercel.app/api/v1";
+// export const server = "https://mbaburgerwalaserver.vercel.app/api/v1";
 
 
 
